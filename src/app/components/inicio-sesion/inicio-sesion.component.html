@@ -1,0 +1,41 @@
+
+<ion-content>
+  <div class = "background-card-inicio">
+    <ion-card>
+      <ion-card-header><ion-card-title>
+        <h1 style = "text-align: center; font-size: 60px;">AlquiNow</h1>
+        <h1>Bienvenido,</h1>
+        <h3>Inicie sesión para continuar</h3>
+      </ion-card-title></ion-card-header>
+      <ion-card-content>
+        <form #usuarioForm = "ngForm" (ngSubmit) = "signIn()">
+          <div class = "form-group">
+            <label style = "text-align: left; color: black; margin-left: 5%; margin-bottom: 3%;">Correo</label>
+              <div style = "text-align: center; display: flex;">
+                
+                <input  id = "input-correo" type = "email" class = "form-control" name = "correo" placeholder = "Digite su correo"  [(ngModel)] = "user.correo">
+
+                
+              </div>
+              <label style = "text-align: left; color: black; margin-left: 5%; margin-bottom: 3%;">Contraseña</label>
+              <div style = "text-align: center;"><input  id = "input-contrasena" type = "password" class = "form-control" name = "contrasena" placeholder = "Digite su contraseña" [(ngModel)] = "user.contrasena">
+              </div>
+  
+          </div>
+          
+          <div style="text-align:center; margin-top: 5%;">
+          
+            <button type = "submit" class ="button-enabled" id = "boton-guardar">Guardar</button>
+          </div>
+        
+          
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+  
+
+  
+</ion-content>
+

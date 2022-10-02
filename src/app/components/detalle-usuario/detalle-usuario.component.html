@@ -1,0 +1,26 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button   routerLink = "/listar-usuarios" default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de usuarios</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+      <ion-card-title>Detalle del usuario</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+  
+      <ion-label>Información básica</ion-label>
+      <div style="text-align:center; margin-top: 5%;">
+        <ion-button type = "submit" style = "margin-right: 5%;" (click) = "editarUsuario()">Editar</ion-button>
+        <ion-button type = "submit" (click) = "presentAlert()">Eliminar</ion-button>
+   
+      </div>
+    
+      </ion-card-content>
+    </ion-card>
+    </ion-content>

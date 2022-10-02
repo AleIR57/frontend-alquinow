@@ -1,0 +1,59 @@
+<ion-toolbar>
+  <ion-buttons slot=“start”>
+  <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de usuarios</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+        <ion-card-title>Lista de usuarios</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-list>
+          <div *ngFor = "let usuario of usuarioService.usuarios">
+            <ion-item   routerLink = "/detalle-usuario/{{usuario._id}}" detail>
+              <ion-avatar item-start class = "ion-margin-end">
+                <img src = "https://cdn.pixabay.com/photo/2020/10/11/03/16/silhouette-5644656__340.jpg">
+              </ion-avatar>
+              <div style = "display: flex; flex-direction: column;">
+                <ion-label >{{usuario.nombres}}</ion-label>
+                <div *ngIf = "usuario.rol  == 'Usuario'">
+                  <ion-note item-end color="secondary">{{usuario.rol}}</ion-note>
+                </div>
+                <div *ngIf = "usuario.rol == 'Administrador'">
+                  <ion-note item-end color="primary">{{usuario.rol}}</ion-note>
+                </div>
+                
+              </div>
+  
+          
+            </ion-item>
+          </div>
+         
+         
+          
+         
+        </ion-list>
+        <div><label (click) = "cerrarSesion()">asdasdad</label></div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink = "/crear-usuario">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+</ion-content>
+
+

@@ -1,0 +1,88 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button   routerLink = "../listar-usuarios" default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de usuarios</ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+      <ion-card-title>Crear un nuevo usuario</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form #usuarioForm = "ngForm" (ngSubmit) = "agregarUsuario(usuarioForm)">
+        <div class = "form-group">
+          <ion-item>
+            <ion-label position="floating">Nombres</ion-label>
+            <ion-input type = "text" class = "form-control" name = "nombres" placeholder = "Digite los nombres del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.nombres"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellidos</ion-label>
+            <ion-input type = "text" class = "form-control" name = "apellidos" placeholder = "Digite los apellidos del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.apellidos"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Tipo de identificación</ion-label>
+            <ion-select  class = "form-control" name = "tipoIdentificacion" placeholder="Seleccionar identificación" [(ngModel)] = "usuarioService.usuarioSeleccionado.tipoIdentificacion">
+              <ion-select-option value="C.C">C.C</ion-select-option>
+              <ion-select-option value="C.E">C.E</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Identificación</ion-label>
+            <ion-input type = "number" class = "form-control" name = "identificacion" placeholder = "Digite la identificación del usuario" type = "number" [(ngModel)] = "usuarioService.usuarioSeleccionado.identificacion"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Celular</ion-label>
+            <ion-input type = "text" class = "form-control" name = "celular" type = "number" class = "form-control" name = "celular" placeholder = "Digite el celular del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.celular"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Residencia</ion-label>
+            <ion-input  type = "text" class = "form-control" name = "residencia" placeholder = "Digite el lugar de residencia del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.residencia"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input  type = "email" class = "form-control" name = "correo" placeholder = "Digite el correo del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.correo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input  type = "password" class = "form-control" name = "contrasena" placeholder = "Digite la contraseña del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.contrasena"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Fecha de nacimiento</ion-label>
+            <ion-input type = "date" class = "form-control" name = "fechaNacimiento" [(ngModel)] = "usuarioService.usuarioSeleccionado.fechaNacimiento"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Estado</ion-label>
+            <ion-select class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "usuarioService.usuarioSeleccionado.estado">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Foto</ion-label>
+            <ion-input type="file" class = "form-control" name = "foto" [(ngModel)] = "usuarioService.usuarioSeleccionado.foto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Rol</ion-label>
+            <ion-select class = "form-control" name = "rol" placeholder="Seleccionar rol" [(ngModel)] = "usuarioService.usuarioSeleccionado.rol">
+              <ion-select-option value="activo">Usuario</ion-select-option>
+              <ion-select-option value="inactivo">Administrador</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        
+        <div style="text-align:center; margin-top: 5%;">
+          <ion-button type = "submit">Guardar</ion-button>
+        </div>
+      
+        
+      </form>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

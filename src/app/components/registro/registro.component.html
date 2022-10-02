@@ -1,0 +1,47 @@
+
+
+<ion-content>
+  <div>
+    <ion-card style = " display:block; margin: 0 auto;">
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+        <ion-card-title>Crear un nuevo usuario</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <form #usuarioForm = "ngForm" (ngSubmit) = "signUp()">
+          <div class = "form-group">
+            <ion-item>
+              <ion-label position="floating">Nombres</ion-label>
+              <ion-input type = "text" class = "form-control" name = "nombres" placeholder = "Digite los nombres del usuario" [(ngModel)] = "user.nombres"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellidos</ion-label>
+              <ion-input type = "text" class = "form-control" name = "apellidos" placeholder = "Digite los apellidos del usuario"  [(ngModel)] = "user.apellidos"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Fecha de nacimiento</ion-label>
+              <ion-input type = "date" class = "form-control" name = "fechaNacimiento"  [(ngModel)] = "user.fechaNacimiento"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Correo</ion-label>
+              <ion-input  type = "email" class = "form-control" name = "correo" placeholder = "Digite el correo del usuario"  [(ngModel)] = "user.correo"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input  type = "password" class = "form-control" name = "contrasena" placeholder = "Digite la contraseña del usuario" [(ngModel)] = "user.contrasena"></ion-input>
+            </ion-item>
+          </div>
+          
+          <div style="text-align:center; margin-top: 5%;">
+            <ion-button type = "submit">Guardar</ion-button>
+          </div>
+        
+          
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+ 
+</ion-content>
