@@ -1,0 +1,50 @@
+<ion-toolbar>
+  <ion-buttons slot=“start”>
+  <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de productos</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+        <ion-card-title>Lista de productos</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-list>
+          <div *ngFor = "let producto of productoService.productos">
+            <ion-item >
+              <ion-avatar item-start class = "ion-margin-end">
+                <img src = "https://cdn.pixabay.com/photo/2020/10/11/03/16/silhouette-5644656__340.jpg">
+              </ion-avatar>
+             
+              <div style = "display: flex; flex-direction: column;">
+                <ion-label >{{producto.nombreProducto}}</ion-label>
+              </div>
+             
+              <ion-icon style = "cursor: pointer;" slot = "end" name="create-outline" routerLink = "/editar-producto/{{producto._id}}"></ion-icon>
+              <ion-icon style = "cursor: pointer;" slot = "end" name="trash-outline" (click) = "presentAlert(producto._id)"></ion-icon>
+            </ion-item>
+          </div>
+        </ion-list>
+        <div><label (click) = "cerrarSesion()">asdasdad</label></div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink = "/crear-producto">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+</ion-content>
+
+

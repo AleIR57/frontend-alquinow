@@ -1,0 +1,83 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button   routerLink = "../listar-servicios" default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de servicios</ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+      <ion-card-title>Crear un nuevo servicio</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form #servicioForm = "ngForm" (ngSubmit) = "agregarServicio(servicioForm)">
+        <div class = "form-group">
+          <ion-item>
+            <ion-label position="floating">Nombre del Servicio</ion-label>
+            <ion-input type = "text" class = "form-control" name = "nombreServicio" placeholder = "Digite los nombres del servicio" [(ngModel)] = "servicioService.servicioSeleccionado.nombreServicio"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Detalle del servicio</ion-label>
+            <ion-input type = "text" class = "form-control" name = "detalleServicio" placeholder = "Digite los apellidos del servicio" [(ngModel)] = "servicioService.servicioSeleccionado.detalleServicio"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Calificación</ion-label>
+            <ion-input type = "text" class = "form-control" name = "calificacion" placeholder = "Digite la calificación del servicio" [(ngModel)] = "servicioService.servicioSeleccionado.calificacion"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Usuario Poseedor</ion-label>
+            <ion-select class = "form-control" name = "idUsuarioPoseedor" placeholder="Seleccionar usuario" [(ngModel)] = "servicioService.servicioSeleccionado.idUsuarioPoseedor">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Descripción</ion-label>
+            <ion-input type = "text" class = "form-control" name = "descripcion" class = "form-control" name = "descripcion" placeholder = "Digite la descripción del servicio" [(ngModel)] = "servicioService.servicioSeleccionado.descripcion"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Precio alquiler</ion-label>
+            <ion-input  type = "text" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del servicio" [(ngModel)] = "servicioService.servicioSeleccionado.precioAlquiler"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Tiempo alquiler</ion-label>
+            <ion-input  type = "email" class = "form-control" name = "correo" placeholder = "Digite el tiempo de alquiler del servicio" [(ngModel)] = "servicioService.servicioSeleccionado.tiempoAlquiler"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Estado</ion-label>
+            <ion-select class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "servicioService.servicioSeleccionado.estado">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Foto</ion-label>
+            <ion-input type="file" class = "form-control" name = "foto" [(ngModel)] = "servicioService.servicioSeleccionado.foto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Usuario al que se va a alquilar</ion-label>
+            <ion-select class = "form-control" name = "idUsuarioAlquilador" placeholder="Seleccionar usuario" [(ngModel)] = "servicioService.servicioSeleccionado.idUsuarioAlquilador">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        
+        <div style="text-align:center; margin-top: 5%;">
+          <ion-button type = "submit">Guardar</ion-button>
+        </div>
+      
+        
+      </form>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-menu contentId="main-content" side = "start" menuId = "first" contentId = "principal">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>AlquiNow</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label style = "margin-left: 3%;">Inicio</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label style = "margin-left: 3%;">Perfil</ion-label>
+      </ion-item>  
+      <ion-item>
+        <ion-icon name="people-circle-outline"></ion-icon>
+        <ion-label style = "margin-left: 3%;">Usuarios</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="pricetag-outline"></ion-icon>
+        <ion-label style = "margin-left: 3%;">Productos</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="hammer-outline"></ion-icon>
+        <ion-label style = "margin-left: 3%;">Servicios</ion-label>
+      </ion-item>
+      <ion-item (click) = "cerrarSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label style = "margin-left: 3%;">Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

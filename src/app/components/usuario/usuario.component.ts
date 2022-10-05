@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -10,7 +11,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class UsuarioComponent implements OnInit {
   
 
-  constructor(private usuarioService: UsuarioService, private authService: AuthService) { 
+  constructor(private usuarioService: UsuarioService, private authService: AuthService, private menuCtrl: MenuController) { 
    
   }
 
@@ -32,6 +33,10 @@ export class UsuarioComponent implements OnInit {
 
   cerrarSesion(){
     this.authService.logout();
+  }
+
+  toggleMenu(){
+    this.menuCtrl.toggle();
   }
 
 }

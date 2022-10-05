@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { AlertController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class InicioSesionComponent implements OnInit {
     contrasena: '',
   }
 
-  constructor(private authService: AuthService, private router: Router, private alertController: AlertController) { }
+  constructor(private authService: AuthService, private router: Router, private alertController: AlertController, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     // (document.getElementById('boton-guardar') as HTMLButtonElement).disabled = true;
@@ -56,10 +57,20 @@ export class InicioSesionComponent implements OnInit {
   }
 
   signIn(){
+    let rol = '';
+ 
     this.authService.signIn(this.user).subscribe(
       res =>{
-       localStorage.setItem('token', res.token);
-       this.router.navigate(['listar-usuarios']);
+        let id = res.id;
+        localStorage.setItem('token', res.token);
+        this.usuarioService.obtenerUsuario(id).subscribe((respuesta) => {
+          rol = respuesta.rol;
+          if(rol == "Administrador"){
+            this.router.navigate(['listar-usuarios']);
+          }
+        });
+ 
+       
       },
       err =>{
         this.presentAlert(err.error);

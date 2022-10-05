@@ -16,13 +16,38 @@
     <ion-card-content>
       <form #usuarioForm = "ngForm" (ngSubmit) = "agregarUsuario(usuarioForm)">
         <div class = "form-group">
+         <label style = "text-align: left; color: black;  margin-bottom: 5%;">Nombres</label>
+              <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+                
+                <input type = "text" class = "form-control" name = "nombres" placeholder = "Digite los nombres del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.nombres">
+
+                
+              </div>
+
+              <label style = "text-align: left; color: black;  margin-bottom: 5%;">Apellidos</label>
+              <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+                
+                <input type = "text" class = "form-control" name = "apellidos" placeholder = "Digite los apellidos del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.apellidos">
+
+                
+              </div>
+              <label style = "text-align: left; color: black;  margin-bottom: 5%;">Tipo de identificación</label>
+              <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+                
+                <ion-select style = "width: 100%;" class = "form-control" name = "tipoIdentificacion" placeholder="Seleccionar identificación" [(ngModel)] = "usuarioService.usuarioSeleccionado.tipoIdentificacion">
+                  <ion-select-option value="C.C">C.C</ion-select-option>
+                  <ion-select-option value="C.E">C.E</ion-select-option>
+                </ion-select>
+
+                
+              </div>
           <ion-item>
             <ion-label position="floating">Nombres</ion-label>
             <ion-input type = "text" class = "form-control" name = "nombres" placeholder = "Digite los nombres del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.nombres"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Apellidos</ion-label>
-            <ion-input type = "text" class = "form-control" name = "apellidos" placeholder = "Digite los apellidos del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.apellidos"></ion-input>
+           
           </ion-item>
           <ion-item>
             <ion-label position="floating">Tipo de identificación</ion-label>

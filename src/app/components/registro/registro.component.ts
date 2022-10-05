@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
@@ -16,17 +19,43 @@ export class RegistroComponent implements OnInit {
     contrasena: '',
   }
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService, private router: Router, private alertController: AlertController) { 
   
   }
 
   ngOnInit() {}
 
-  signUp(){
-    this.authService.signUp(this.user).subscribe(res => {
-      console.log(res)
-      localStorage.setItem('token', res.token);
-    }, err => console.log(err))
+  signUp(form: NgForm){
+
+    
+    console.log(form);
+    this.authService.signUp(this.user).subscribe(res => {  form.reset(); this.presentAlert() },
+    err => console.error(err)
+  );
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: '¡Registrado correctamente!',
+      buttons: [
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+            this.router.navigate(['/inicio-sesion'])
+    .then(() => {
+      window.location.reload();
+    });
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+
+  }
+  
 
 }

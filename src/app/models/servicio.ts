@@ -1,0 +1,15 @@
+export interface Servicio{
+    _id: string,
+    nombreServicio: string,
+    detalleServicio: string,
+    calificacion: string,
+    idUsuarioPoseedor: string,
+    descripcion: string,
+    precioAlquiler: string,
+    tiempoAlquiler: string,
+    foto: string,
+    estado: string,
+    idUsuarioAlquilador: string,
+    createdAt: string,
+    updatedAt: string,
+}

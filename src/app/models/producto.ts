@@ -1,0 +1,17 @@
+export interface Producto{
+    _id: string,
+    nombreProducto: string,
+    detalleProducto: string,
+    calificacion: string,
+    idUsuarioPoseedor: string,
+    descripcion: string,
+    precioAlquiler: string,
+    tiempoAlquiler: string,
+    marca: string,
+    modelo: string,
+    foto: string,
+    estado: string,
+    idUsuarioAlquilador: string,
+    createdAt: string,
+    updatedAt: string,
+}

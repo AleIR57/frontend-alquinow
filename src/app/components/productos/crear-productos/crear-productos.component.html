@@ -1,0 +1,91 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button   routerLink = "../listar-productos" default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de productos</ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+      <ion-card-title>Crear un nuevo producto</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form #productoForm = "ngForm" (ngSubmit) = "agregarProducto(productoForm)">
+        <div class = "form-group">
+          <ion-item>
+            <ion-label position="floating">Nombre del producto</ion-label>
+            <ion-input type = "text" class = "form-control" name = "nombreProducto" placeholder = "Digite los nombres del producto" [(ngModel)] = "productoService.productoSeleccionado.nombreProducto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Detalle del producto</ion-label>
+            <ion-input type = "text" class = "form-control" name = "detalleProducto" placeholder = "Digite los apellidos del producto" [(ngModel)] = "productoService.productoSeleccionado.detalleProducto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Calificación</ion-label>
+            <ion-input type = "text" class = "form-control" name = "calificacion" placeholder = "Digite la calificación del producto" [(ngModel)] = "productoService.productoSeleccionado.calificacion"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Usuario Poseedor</ion-label>
+            <ion-select class = "form-control" name = "idUsuarioPoseedor" placeholder="Seleccionar usuario" [(ngModel)] = "productoService.productoSeleccionado.idUsuarioPoseedor">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Descripción</ion-label>
+            <ion-input type = "text" class = "form-control" name = "descripcion" class = "form-control" name = "descripcion" placeholder = "Digite la descripción del producto" [(ngModel)] = "productoService.productoSeleccionado.descripcion"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Precio alquiler</ion-label>
+            <ion-input  type = "text" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del producto" [(ngModel)] = "productoService.productoSeleccionado.precioAlquiler"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Tiempo alquiler</ion-label>
+            <ion-input  type = "email" class = "form-control" name = "correo" placeholder = "Digite el tiempo de alquiler del producto" [(ngModel)] = "productoService.productoSeleccionado.tiempoAlquiler"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Marca</ion-label>
+            <ion-input  type = "password" class = "form-control" name = "marca" placeholder = "Digite la marca del producto" [(ngModel)] = "productoService.productoSeleccionado.marca"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Modelo</ion-label>
+            <ion-input type = "date" class = "form-control" name = "modelo" [(ngModel)] = "productoService.productoSeleccionado.modelo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Estado</ion-label>
+            <ion-select class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "productoService.productoSeleccionado.estado">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Foto</ion-label>
+            <ion-input type="file" class = "form-control" name = "foto" [(ngModel)] = "productoService.productoSeleccionado.foto"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Usuario al que se va a alquilar</ion-label>
+            <ion-select class = "form-control" name = "idUsuarioAlquilador" placeholder="Seleccionar usuario" [(ngModel)] = "productoService.productoSeleccionado.idUsuarioAlquilador">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        
+        <div style="text-align:center; margin-top: 5%;">
+          <ion-button type = "submit">Guardar</ion-button>
+        </div>
+      
+        
+      </form>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>
