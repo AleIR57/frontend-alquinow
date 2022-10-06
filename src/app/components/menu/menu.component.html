@@ -14,17 +14,17 @@
         <ion-icon name="person-outline"></ion-icon>
         <ion-label style = "margin-left: 3%;">Perfil</ion-label>
       </ion-item>  
-      <ion-item>
+      <ion-item (click) = "toggleMenu">
         <ion-icon name="people-circle-outline"></ion-icon>
-        <ion-label style = "margin-left: 3%;">Usuarios</ion-label>
+        <ion-label style = "margin-left: 3%;" routerLink = "listar-usuarios" >Usuarios</ion-label>
       </ion-item>
-      <ion-item>
+      <ion-item (click) = "toggleMenu">
         <ion-icon name="pricetag-outline"></ion-icon>
-        <ion-label style = "margin-left: 3%;">Productos</ion-label>
+        <ion-label style = "margin-left: 3%;" routerLink = "listar-productos" >Productos</ion-label>
       </ion-item>
-      <ion-item>
+      <ion-item (click) = "toggleMenu">
         <ion-icon name="hammer-outline"></ion-icon>
-        <ion-label style = "margin-left: 3%;">Servicios</ion-label>
+        <ion-label style = "margin-left: 3%;" routerLink = "listar-servicios" >Servicios</ion-label>
       </ion-item>
       <ion-item (click) = "cerrarSesion()">
         <ion-icon name="log-out-outline"></ion-icon>

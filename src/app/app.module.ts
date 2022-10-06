@@ -23,10 +23,13 @@ import { ListarServiciosComponent } from './components/listar-servicios/listar-s
 import { CrearServiciosComponent } from './components/crear-servicios/crear-servicios.component';
 import { EditarServiciosComponent } from './components/editar-servicios/editar-servicios.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ListarItemUsuarioComponent } from './components/items-usuarios/listar-item-usuario/listar-item-usuario.component';
 AuthGuard
 
 @NgModule({
-  declarations: [AppComponent, UsuarioComponent, DetalleUsuarioComponent, CrearUsuarioComponent, EditarUsuarioComponent, RegistroComponent, InicioSesionComponent, ListarProductosComponent, CrearProductosComponent, EditarProductosComponent, ListarServiciosComponent, CrearServiciosComponent, EditarServiciosComponent, MenuComponent],
+  declarations: [AppComponent, UsuarioComponent, DetalleUsuarioComponent, CrearUsuarioComponent, EditarUsuarioComponent, RegistroComponent, 
+    InicioSesionComponent, ListarProductosComponent, CrearProductosComponent, EditarProductosComponent, ListarServiciosComponent, CrearServiciosComponent, 
+    EditarServiciosComponent, MenuComponent, ListarItemUsuarioComponent],
   exports: [MenuComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard],

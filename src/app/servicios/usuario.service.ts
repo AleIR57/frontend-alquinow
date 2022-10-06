@@ -27,6 +27,7 @@ export class UsuarioService {
     contrasena: '',
     fechaNacimiento: '',
     estado: '',
+    foto: '',
     createdAt: '',
     updatedAt: '',
   };

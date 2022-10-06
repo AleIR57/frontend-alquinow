@@ -1,8 +1,12 @@
 <ion-toolbar>
-  <ion-buttons slot=“start”>
-  <ion-back-button></ion-back-button>
-  </ion-buttons>
-  <ion-title>Configuración de servicios</ion-title>
+
+ 
+  <ion-icon  (click) = "toggleMenu()" slot = "start" style = "width: 30px; height: 40px; margin-left: 2%;" name="menu-outline"></ion-icon>
+
+  <ion-icon slot = "end" name="cart-outline" style = "width: 40px; height: 40px; margin-right: 2%;"></ion-icon>
+  <ion-avatar slot = "end" style = "width: 40px; height: 40px" item-start class = "ion-margin-end">
+    <img src = "https://cdn.pixabay.com/photo/2020/10/11/03/16/silhouette-5644656__340.jpg">
+  </ion-avatar>
 </ion-toolbar>
 
 <ion-content [fullscreen]="true">
@@ -19,7 +23,7 @@
           <div *ngFor = "let servicio of servicioService.servicios">
             <ion-item >
               <ion-avatar item-start class = "ion-margin-end">
-                <img src = "https://cdn.pixabay.com/photo/2020/10/11/03/16/silhouette-5644656__340.jpg">
+                <img src = "{{servicio.foto}}">
               </ion-avatar>
              
               <div style = "display: flex; flex-direction: column;">
@@ -31,7 +35,7 @@
             </ion-item>
           </div>
         </ion-list>
-        <div><label (click) = "cerrarSesion()">asdasdad</label></div>
+
       </ion-card-content>
     </ion-card>
   </div>

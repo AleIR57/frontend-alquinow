@@ -29,7 +29,7 @@ input{
     
 }
 
-input:hover{
+input:focus{
     border: 2px solid rgba(232,93,248,1);
 }
 
@@ -82,3 +82,4 @@ ion-card{
 span{
     color: rgba(232,93,248,1);
 }
+

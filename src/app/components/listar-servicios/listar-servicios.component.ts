@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { ServicioService } from 'src/app/servicios/servicio.service';
@@ -12,7 +12,7 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
 })
 export class ListarServiciosComponent implements OnInit {
   private routeSub: Subscription;
-  constructor(private alertController: AlertController, private servicioService: ServicioService, private route: ActivatedRoute, private authService: AuthService, private router: Router) { }
+  constructor(private alertController: AlertController, private servicioService: ServicioService, private route: ActivatedRoute, private authService: AuthService, private router: Router, private menuCtrl: MenuController) { }
 
   selectedId;
   ngOnInit() {
@@ -64,6 +64,10 @@ export class ListarServiciosComponent implements OnInit {
 
   cerrarSesion(){
     this.authService.logout();
+  }
+
+  toggleMenu(){
+    this.menuCtrl.toggle();
   }
 
 }

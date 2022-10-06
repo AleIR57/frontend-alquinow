@@ -16,67 +16,63 @@
     <ion-card-content>
       <form #productoForm = "ngForm" (ngSubmit) = "editarProducto(productoForm)">
         <div class = "form-group">
-          <ion-item>
-            <ion-label position="floating">Nombre del producto</ion-label>
-            <ion-input type = "text" class = "form-control" name = "nombreProducto" placeholder = "Digite los nombres del producto" [(ngModel)] = "productoService.productoSeleccionado.nombreProducto"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Detalle del producto</ion-label>
-            <ion-input type = "text" class = "form-control" name = "detalleProducto" placeholder = "Digite los apellidos del producto" [(ngModel)] = "productoService.productoSeleccionado.detalleProducto"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Calificación</ion-label>
-            <ion-input type = "text" class = "form-control" name = "calificacion" placeholder = "Digite la calificación del producto" [(ngModel)] = "productoService.productoSeleccionado.calificacion"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Usuario Poseedor</ion-label>
-            <ion-select class = "form-control" name = "idUsuarioPoseedor" placeholder="Seleccionar usuario" [(ngModel)] = "productoService.productoSeleccionado.idUsuarioPoseedor">
-              <ion-select-option value="activo">Activo</ion-select-option>
-              <ion-select-option value="inactivo">Inactivo</ion-select-option>
-              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
-            </ion-select>
-          
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Descripción</ion-label>
-            <ion-input type = "text" class = "form-control" name = "descripcion" class = "form-control" name = "descripcion" placeholder = "Digite la descripción del producto" [(ngModel)] = "productoService.productoSeleccionado.descripcion"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Precio alquiler</ion-label>
-            <ion-input  type = "text" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del producto" [(ngModel)] = "productoService.productoSeleccionado.precioAlquiler"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Tiempo alquiler</ion-label>
-            <ion-input  type = "email" class = "form-control" name = "correo" placeholder = "Digite el tiempo de alquiler del producto" [(ngModel)] = "productoService.productoSeleccionado.tiempoAlquiler"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Marca</ion-label>
-            <ion-input  type = "password" class = "form-control" name = "marca" placeholder = "Digite la marca del producto" [(ngModel)] = "productoService.productoSeleccionado.marca"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Modelo</ion-label>
-            <ion-input type = "date" class = "form-control" name = "modelo" [(ngModel)] = "productoService.productoSeleccionado.modelo"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Estado</ion-label>
-            <ion-select class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "productoService.productoSeleccionado.estado">
-              <ion-select-option value="activo">Activo</ion-select-option>
-              <ion-select-option value="inactivo">Inactivo</ion-select-option>
-              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <ion-item>
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Nombre del producto</label><span style = "color: red;"> *</span>
+          <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input style = "width: 100%;"type = "text" class = "form-control" name = "nombreProducto" placeholder = "Digite los nombres del producto" [(ngModel)] = "productoService.productoSeleccionado.nombreProducto">
+
+            
+          </div>
+
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Descripción</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <textarea style = "width: 100%;" class = "form-control" name = "descripcion" placeholder = "Digite la descripción del producto" [(ngModel)] = "productoService.productoSeleccionado.descripcion"></textarea>
+            </div>
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Precio alquiler</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" type = "number" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del producto" [(ngModel)] = "productoService.productoSeleccionado.precioAlquiler">
+            </div>
+
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Tiempo alquiler (en días)</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" type = "number" class = "form-control" name = "tiempoAlquiler" placeholder = "Digite el tiempo de alquiler del producto en días" [(ngModel)] = "productoService.productoSeleccionado.tiempoAlquiler">
+            </div>
+       
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Marca</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" class = "form-control" name = "marca" placeholder = "Digite la marca del producto" [(ngModel)] = "productoService.productoSeleccionado.marca">
+            </div>
+         
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Modelo</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" class = "form-control" name = "modelo" placeholder = "Digite el modelo del producto" [(ngModel)] = "productoService.productoSeleccionado.modelo">
+            </div>
+
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Estado</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <ion-select style = "width: 100%;" class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "productoService.productoSeleccionado.estado">
+                <ion-select-option value="activo">Activo</ion-select-option>
+                <ion-select-option value="inactivo">Inactivo</ion-select-option>
+                <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+              </ion-select>
+            </div>
+
             <ion-label>Foto</ion-label>
-            <ion-input type="file" class = "form-control" name = "foto" [(ngModel)] = "productoService.productoSeleccionado.foto"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Usuario al que se va a alquilar</ion-label>
-            <ion-select class = "form-control" name = "idUsuarioAlquilador" placeholder="Seleccionar usuario" [(ngModel)] = "productoService.productoSeleccionado.idUsuarioAlquilador">
-              <ion-select-option value="activo">Activo</ion-select-option>
-              <ion-select-option value="inactivo">Inactivo</ion-select-option>
-              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
-            </ion-select>
-          </ion-item>
+
+            <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+              <input type="file" (change) = "capturarFile($event)" class = "form-control" name = "foto" [(ngModel)] = "productoService.productoSeleccionado.foto">
+           </div> 
+           <label *ngIf = "previsualizacion" style = "margin-top: 1%;">Previsualización</label>
+              <div style = "text-align: center;" *ngIf = "previsualizacion">
+              
+                <img style = "width: 50%;  border: 1px solid lightgray; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"[src] = "previsualizacion" alt = "">
+              </div>
         </div>
         
         <div style="text-align:center; margin-top: 5%;">

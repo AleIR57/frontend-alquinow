@@ -13,13 +13,23 @@ export class DetalleUsuarioComponent implements OnInit {
   private routeSub: Subscription;
   constructor(private alertController: AlertController, private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
   selectedId;
+  foto: String;
+  nombreUsuario: String;
+  rolUsuario: String;
+
   ngOnInit() {
+    
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params) //log the entire params object
       this.selectedId = params['id'];
     });
 
+    this.usuarioService.obtenerUsuario(this.selectedId).subscribe((res) => {
+      this.foto = res.foto;
+      this.nombreUsuario = res.nombres +  " " + res.apellidos;
+      this.rolUsuario = res.rol;
 
+    });
     
   }
   handlerMessage = '';

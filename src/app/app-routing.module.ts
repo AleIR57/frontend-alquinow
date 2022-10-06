@@ -13,6 +13,7 @@ import { EditarProductosComponent } from './components/productos/editar-producto
 import { ListarServiciosComponent } from './components/listar-servicios/listar-servicios.component';
 import { CrearServiciosComponent } from './components/crear-servicios/crear-servicios.component';
 import { EditarServiciosComponent } from './components/editar-servicios/editar-servicios.component';
+import { ListarItemUsuarioComponent } from './components/items-usuarios/listar-item-usuario/listar-item-usuario.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,11 @@ const routes: Routes = [
   {
     path: 'editar-servicio/:id',
     component: EditarServiciosComponent
+  }
+  ,
+  {
+    path: 'listar-items-usuarios',
+    component: ListarItemUsuarioComponent
   }
 ];
 

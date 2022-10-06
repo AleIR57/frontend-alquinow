@@ -1,0 +1,164 @@
+<ion-toolbar>
+
+ 
+  <ion-icon  (click) = "toggleMenu()" slot = "start" style = "width: 30px; height: 40px; margin-left: 2%; cursor: pointer;" name="menu-outline"></ion-icon>
+
+  <ion-icon slot = "end" name="cart-outline" style = "width: 40px; height: 40px; margin-right: 2%;"></ion-icon>
+  <ion-avatar slot = "end" style = "width: 40px; height: 40px" item-start class = "ion-margin-end">
+    <img src = "https://cdn.pixabay.com/photo/2020/10/11/03/16/silhouette-5644656__340.jpg">
+  </ion-avatar>
+</ion-toolbar>
+
+
+<ion-content>
+  <ion-segment value="Productos" (ionChange) = "segmentChanged($event)">
+    <ion-segment-button value="Productos">
+      <ion-label>Productos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Servicios">
+      <ion-label>Servicios</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div class = "fondo" *ngIf = "productos">
+    <ion-searchbar show-cancel-button="focus"  placeholder="Buscar producto"></ion-searchbar>
+  </div>
+
+  <div style = "width: 90%;">
+    <div class = "wrapper" *ngIf = "productos">
+      <div class = "item">Categoría 1</div>
+      <div class = "item">Categoría 2</div>
+      <div class = "item">Categoría 3</div>
+      <div class = "item">Categoría 4</div>
+      <div class = "item">Categoría 5</div>
+      <div class = "item">Categoría 6</div>
+    </div>
+  </div>
+ 
+  <div class="box-container" *ngIf = "productos">
+    <div class="box" *ngFor = "let producto of productoService.productos">
+      <div class="image">
+        <img src = "{{producto.foto}}" alt = "">
+      </div>
+  
+      <div class="info">
+        <h3 class="title">{{producto.nombreProducto}}</h3>
+        <div class="subinfo">
+          <h6>Publicado por: {{producto.idUsuarioPoseedor}}</h6>
+          <h6>Estado: {{producto.estado}}</h6>
+          <h6>Valoración: {{producto.valoracion}}</h6>
+          <div class="price">$ {{producto.precioAlquiler}} <span style = "color: #666;">por día</span></div>
+       
+          <div class="stars">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="overlay">
+        <a href = "#" style = "--i:1;"></a>
+        <a href = "#" style = "--i:2;"></a>
+        <a href = "#" style = "--i:3;"></a>
+      </div>
+    </div>
+  
+    </div>
+  <div class = "fondo" *ngIf = "servicios">
+    <ion-searchbar show-cancel-button="focus" style = "border-radius: 15px;" placeholder="Buscar servicio"></ion-searchbar>
+  </div>
+  <div style = "width: 90%;">
+    <div class = "wrapper" *ngIf = "servicios">
+      <div class = "item">Categoría 1</div>
+      <div class = "item">Categoría 2</div>
+      <div class = "item">Categoría 3</div>
+      <div class = "item">Categoría 4</div>
+      <div class = "item">Categoría 5</div>
+      <div class = "item">Categoría 6</div>
+    </div>
+  </div>
+  <div class="box-container" *ngIf = "servicios">
+    <div class="box"  >
+      <div class="image">
+        <img src = "https://www.miconstruguia.com/wp-content/uploads/2014/07/iStock_000016963531Medium.jpg" alt = "">
+      </div>
+  
+      <div class="info">
+        <h3 class="title">Servicio de estucador</h3>
+        <p style = "padding: 10px;">Honorable trabajador dedicado a la obra blanca, ofrece sus servicios como estucador. Trabajo por Horas</p>
+        <div class="subinfo">
+          <div class="price">$1000 <span style = "color: #666;">por hora</span></div>
+       
+          <div class="stars">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="overlay">
+        <a href = "#" style = "--i:1;"></a>
+        <a href = "#" style = "--i:2;"></a>
+        <a href = "#" style = "--i:3;"></a>
+      </div>
+    </div>
+  
+    <div class="box">
+      <div class="image">
+        <img src = "https://belltec.com.co/4623-large_default/pulidora-angular-125mm-5-sjs-1450-watts-1000-rp.jpg" alt = "">
+      </div>
+  
+      <div class="info">
+        <h3 class="title">Pulidora</h3>
+        <div class="subinfo">
+          <div class="price">1000</div>
+          <div class="stars">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="overlay">
+        <a href = "#" style = "--i:1;"></a>
+        <a href = "#" style = "--i:2;"></a>
+        <a href = "#" style = "--i:3;"></a>
+      </div>
+    </div>
+  
+    <div class="box">
+      <div class="image">
+        <img src = "https://belltec.com.co/4623-large_default/pulidora-angular-125mm-5-sjs-1450-watts-1000-rp.jpg" alt = "">
+      </div>
+  
+      <div class="info">
+        <h3 class="title">Pulidora</h3>
+        <div class="subinfo">
+          <div class="price">1000</div>
+          <div class="stars">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="overlay">
+        <a href = "#" style = "--i:1;"></a>
+        <a href = "#" style = "--i:2;"></a>
+        <a href = "#" style = "--i:3;"></a>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

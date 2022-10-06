@@ -11,6 +11,7 @@ export interface Usuario{
     contrasena: string,
     fechaNacimiento: string,
     estado: string,
+    foto: string,
     createdAt: string,
     updatedAt: string,
 

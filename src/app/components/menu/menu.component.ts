@@ -18,4 +18,11 @@ export class MenuComponent implements OnInit {
     this.menuCtrl.toggle();
   }
 
+  toggleMenu(){
+    console.log("Holaaaaa");
+    this.menuCtrl.toggle();
+  }
+
+  
+
 }

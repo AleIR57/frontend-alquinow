@@ -24,7 +24,7 @@
             <div *ngFor = "let usuario of usuarioService.usuarios">
               <ion-item   routerLink = "/detalle-usuario/{{usuario._id}}" detail>
                 <ion-avatar item-start class = "ion-margin-end">
-                  <img src = "https://cdn.pixabay.com/photo/2020/10/11/03/16/silhouette-5644656__340.jpg">
+                  <img src = "{{usuario.foto}}">
                 </ion-avatar>
                 <div style = "display: flex; flex-direction: column;">
                   <ion-label >{{usuario.nombres}}</ion-label>
