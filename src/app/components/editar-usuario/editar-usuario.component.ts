@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
@@ -12,9 +13,10 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class EditarUsuarioComponent implements OnInit {
   private routeSub: Subscription;
-  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
   usuario: Usuario;
   selectedId;
+  public previsualizacion: string;
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params) //log the entire params object
@@ -29,10 +31,8 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   editarUsuario(form: NgForm){
-    if(form.value.foto == undefined){
-      form.value.foto = '';
-    }
-    console.log(form.value);
+    form.value.foto = this.previsualizacion;
+
     this.usuarioService.editarUsuario(form.value, this.selectedId).subscribe(
       res => {this.router.navigate(['/listar-usuarios'])
       .then(() => {
@@ -41,6 +41,39 @@ export class EditarUsuarioComponent implements OnInit {
       err => console.error(err)
     );
   }
+
+  capturarFile(event):any{
+    const archivoCapturado = event.target.files[0];
+    this.extraerBase64(archivoCapturado).then((imagen:any) =>{
+      this.previsualizacion = imagen.base;
+      
+    })
+ 
+   
+  }
+
+
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+
+    } catch (e) {
+      return null;
+    }
+  })
 
   
 

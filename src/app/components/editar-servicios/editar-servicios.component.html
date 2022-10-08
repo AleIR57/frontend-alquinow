@@ -42,8 +42,8 @@
           <div style = " text-align: center; display: flex; margin-bottom: 1%;">
             
             <ion-select style = "width: 100%;" class = "form-control" name = "tiempoAlquiler" placeholder="Seleccionar estado" [(ngModel)] = "servicioService.servicioSeleccionado.tiempoAlquiler">
-              <ion-select-option value="activo">Por horas</ion-select-option>
-              <ion-select-option value="inactivo">Por trabajo realizado</ion-select-option>
+              <ion-select-option value="por hora">Por horas</ion-select-option>
+              <ion-select-option value="por trabajo realizado">Por trabajo realizado</ion-select-option>
             </ion-select>
           </div>
 
@@ -63,7 +63,12 @@
           <label style = "text-align: left; color: black;  margin-bottom: 5%;">Foto</label><span style = "color: red;"> *</span>
           <div style = " text-align: center; display: flex; margin-bottom: 1%;">
             
-            <input type="file" class = "form-control" (change) = "capturarFile($event)" name = "foto" [(ngModel)] = "servicioService.servicioSeleccionado.foto">
+            <input type="file" class = "form-control" (change) = "capturarFile($event)" name = "foto" value= "servicioService.servicioSeleccionado.foto">
+          </div>
+          <label *ngIf = "previsualizacion" style = "margin-top: 1%;">Previsualización</label>
+          <div style = "text-align: center;" *ngIf = "previsualizacion">
+          
+            <img style = "width: 50%;  border: 1px solid lightgray; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"[src] = "previsualizacion" alt = "">
           </div>
         </div>
         

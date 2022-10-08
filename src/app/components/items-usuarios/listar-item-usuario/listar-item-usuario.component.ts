@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { ServicioService } from 'src/app/servicios/servicio.service';
 
 @Component({
   selector: 'app-listar-item-usuario',
@@ -9,7 +10,7 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 })
 export class ListarItemUsuarioComponent implements OnInit {
 
-  constructor(private menuCtrl: MenuController, private productoService: ProductoService) { }
+  constructor(private menuCtrl: MenuController, private productoService: ProductoService, public servicioService: ServicioService) { }
 
   productos: boolean;
   servicios: boolean;
@@ -20,8 +21,12 @@ export class ListarItemUsuarioComponent implements OnInit {
     this.productoService.obtenerProductos().subscribe((res) => {
     this.productoService.productos = res;
   });
+
+  this.servicioService.obtenerServicios().subscribe((res) => {
+    this.servicioService.servicios = res;
+  });
   
-  console.log(this.productoService.productos)
+ 
   }
 
   toggleMenu(){

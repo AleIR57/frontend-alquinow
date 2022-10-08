@@ -97,10 +97,14 @@
 
           <label style = "text-align: left; color: black;  margin-bottom: 5%;">Foto</label>
           <div style = "text-align: center; display: flex; margin-bottom: 1%;">
-            <input type="file" name = "foto" [(ngModel)] = "usuarioService.usuarioSeleccionado.foto">
+            <input type="file" name = "foto" (change) = "capturarFile($event)" value = "usuarioService.usuarioSeleccionado.foto">
            
           </div>
-
+          
+          <div style = "text-align: center;" *ngIf = "previsualizacion">
+              
+            <img style = "width: 50%;  border: 1px solid lightgray; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"[src] = "previsualizacion" alt = "">
+          </div>
        
       
         </div>

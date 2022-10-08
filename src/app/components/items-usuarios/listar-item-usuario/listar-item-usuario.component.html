@@ -41,11 +41,20 @@
       </div>
   
       <div class="info">
-        <h3 class="title">{{producto.nombreProducto}}</h3>
+        <div style = "display: flex; width: 100%; align-items: center;">
+          <h3 class="title" style = "width: 80%;">{{producto.nombreProducto}} </h3>
+          <div *ngIf="producto.estado == 'activo'" class = "estado-verde"> </div>
+          <div *ngIf="producto.estado == 'inactivo'" class = "estado-gris"> </div>
+          <div *ngIf="producto.estado == 'bloqueado'" class = "estado-rojo"> </div>
+     
+        </div>
+       
         <div class="subinfo">
-          <h6>Publicado por: {{producto.idUsuarioPoseedor}}</h6>
-          <h6>Estado: {{producto.estado}}</h6>
-          <h6>Valoración: {{producto.valoracion}}</h6>
+          <h6 style = "padding-left: 10px; padding-right: 8px;">{{producto.descripcion}}</h6>
+          <h6 style = "padding-left: 10px;">{{producto.marca}}</h6>
+          <h6 style = "padding-left: 10px;">Publicado por: Administración</h6>
+          
+          <h6>{{producto.calificacion}}</h6>
           <div class="price">$ {{producto.precioAlquiler}} <span style = "color: #666;">por día</span></div>
        
           <div class="stars">
@@ -80,16 +89,22 @@
     </div>
   </div>
   <div class="box-container" *ngIf = "servicios">
-    <div class="box"  >
+    <div class="box"  *ngFor = "let servicio of servicioService.servicios">
       <div class="image">
-        <img src = "https://www.miconstruguia.com/wp-content/uploads/2014/07/iStock_000016963531Medium.jpg" alt = "">
+        <img src = "{{servicio.foto}}" alt = "">
       </div>
   
       <div class="info">
-        <h3 class="title">Servicio de estucador</h3>
-        <p style = "padding: 10px;">Honorable trabajador dedicado a la obra blanca, ofrece sus servicios como estucador. Trabajo por Horas</p>
+        <div style = "display: flex; width: 100%; align-items: center;">
+          <h3 class="title" style = "width: 80%;">{{servicio.nombreServicio}}</h3>
+          <div *ngIf="servicio.estado == 'activo'" class = "estado-verde"> </div>
+          <div *ngIf="servicio.estado == 'inactivo'" class = "estado-gris"> </div>
+          <div *ngIf="servicio.estado == 'bloqueado'" class = "estado-rojo"> </div>
+        </div>
+    
+        <p style = "padding: 10px;">{{servicio.descripcion}}</p>
         <div class="subinfo">
-          <div class="price">$1000 <span style = "color: #666;">por hora</span></div>
+          <div class="price">$ {{servicio.precioAlquiler}}<span style = "color: #666;"> {{servicio.tiempoAlquiler}}</span></div>
        
           <div class="stars">
             <i class = "fas fa-star"></i>
@@ -108,57 +123,9 @@
       </div>
     </div>
   
-    <div class="box">
-      <div class="image">
-        <img src = "https://belltec.com.co/4623-large_default/pulidora-angular-125mm-5-sjs-1450-watts-1000-rp.jpg" alt = "">
-      </div>
+    
   
-      <div class="info">
-        <h3 class="title">Pulidora</h3>
-        <div class="subinfo">
-          <div class="price">1000</div>
-          <div class="stars">
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star-half"></i>
-          </div>
-        </div>
-      </div>
-  
-      <div class="overlay">
-        <a href = "#" style = "--i:1;"></a>
-        <a href = "#" style = "--i:2;"></a>
-        <a href = "#" style = "--i:3;"></a>
-      </div>
-    </div>
-  
-    <div class="box">
-      <div class="image">
-        <img src = "https://belltec.com.co/4623-large_default/pulidora-angular-125mm-5-sjs-1450-watts-1000-rp.jpg" alt = "">
-      </div>
-  
-      <div class="info">
-        <h3 class="title">Pulidora</h3>
-        <div class="subinfo">
-          <div class="price">1000</div>
-          <div class="stars">
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star-half"></i>
-          </div>
-        </div>
-      </div>
-  
-      <div class="overlay">
-        <a href = "#" style = "--i:1;"></a>
-        <a href = "#" style = "--i:2;"></a>
-        <a href = "#" style = "--i:3;"></a>
-      </div>
-    </div>
+   
   </div>
 </ion-content>
 

@@ -66,7 +66,7 @@
             <ion-label>Foto</ion-label>
 
             <div style = "text-align: center; display: flex; margin-bottom: 1%;">
-              <input type="file" (change) = "capturarFile($event)" class = "form-control" name = "foto" [(ngModel)] = "productoService.productoSeleccionado.foto">
+              <input type="file" (change) = "capturarFile($event)" class = "form-control" name = "foto" value = "productoService.productoSeleccionado.foto">
            </div> 
            <label *ngIf = "previsualizacion" style = "margin-top: 1%;">Previsualización</label>
               <div style = "text-align: center;" *ngIf = "previsualizacion">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Servicio } from 'src/app/models/servicio';
@@ -12,10 +13,12 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
 })
 export class EditarServiciosComponent implements OnInit {
   private routeSub: Subscription;
-  constructor(private servicioService: ServicioService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private servicioService: ServicioService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
   servicio: Servicio;
+  previsualizacion: String;
   selectedId;
   ngOnInit() {
+    
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params) //log the entire params object
       this.selectedId = params['id'];
@@ -27,9 +30,8 @@ export class EditarServiciosComponent implements OnInit {
   }
 
   editarServicio(form: NgForm){
-    if(form.value.foto == undefined){
-      form.value.foto = '';
-    }
+    form.value.foto = this.previsualizacion;
+ 
     console.log(form.value);
     this.servicioService.editarServicio(form.value, this.selectedId).subscribe(
       res => {this.router.navigate(['/listar-servicios'])
@@ -39,5 +41,40 @@ export class EditarServiciosComponent implements OnInit {
       err => console.error(err)
     );
   }
+
+  capturarFile(event):any{
+    const archivoCapturado = event.target.files[0];
+    this.extraerBase64(archivoCapturado).then((imagen:any) =>{
+      this.previsualizacion = imagen.base;
+      
+    })
+ 
+   
+  }
+
+
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+
+    } catch (e) {
+      return null;
+    }
+  })
+
+  
 
 }

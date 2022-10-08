@@ -23,9 +23,19 @@
           <ion-list>
             <div *ngFor = "let usuario of usuarioService.usuarios">
               <ion-item   routerLink = "/detalle-usuario/{{usuario._id}}" detail>
-                <ion-avatar item-start class = "ion-margin-end">
-                  <img src = "{{usuario.foto}}">
+                <ion-avatar item-start class = "ion-margin-end" *ngIf = "usuario.foto !==undefined">
+                 
+                    <img src = "{{usuario.foto}}">
+                  
                 </ion-avatar>
+
+                <ion-avatar item-start class = "ion-margin-end" *ngIf = "usuario.foto == undefined">
+                 
+                  <img src = "https://cdn-icons-png.flaticon.com/512/147/147142.png">
+                
+              </ion-avatar>
+
+             
                 <div style = "display: flex; flex-direction: column;">
                   <ion-label >{{usuario.nombres}}</ion-label>
                   <div *ngIf = "usuario.rol  == 'Usuario'">

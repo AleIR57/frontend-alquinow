@@ -16,8 +16,11 @@
       </div>
      
       <div style = "display: flex;">
-        <div class = "img-container">
+        <div class = "img-container" *ngIf = "foto !== undefined">
           <img class = "img" src = "{{foto}}">
+        </div>
+        <div class = "img-container" *ngIf = "foto == undefined">
+          <img class = "img" src = "https://cdn-icons-png.flaticon.com/512/147/147142.png">
         </div>
         <div>
           <ion-card-title>{{nombreUsuario}}</ion-card-title>

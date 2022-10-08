@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Producto } from 'src/app/models/producto';
@@ -12,7 +13,8 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 })
 export class EditarProductosComponent implements OnInit {
   private routeSub: Subscription;
-  constructor(private productoService: ProductoService, private route: ActivatedRoute, private router: Router) { }
+  previsualizacion: String;
+  constructor(private productoService: ProductoService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
   producto: Producto;
   selectedId;
   ngOnInit() {
@@ -39,5 +41,38 @@ export class EditarProductosComponent implements OnInit {
       err => console.error(err)
     );
   }
+
+  capturarFile(event):any{
+    const archivoCapturado = event.target.files[0];
+    this.extraerBase64(archivoCapturado).then((imagen:any) =>{
+      this.previsualizacion = imagen.base;
+      
+    })
+ 
+   
+  }
+
+
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+
+    } catch (e) {
+      return null;
+    }
+  })
 
 }
