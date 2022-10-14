@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class DetalleUsuarioComponent implements OnInit {
   private routeSub: Subscription;
-  constructor(private alertController: AlertController, private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public alertController: AlertController, public usuarioService: UsuarioService, public route: ActivatedRoute, public router: Router) { }
   selectedId;
   foto: String;
   nombreUsuario: String;

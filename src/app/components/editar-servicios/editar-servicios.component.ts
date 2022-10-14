@@ -12,8 +12,8 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
   styleUrls: ['./editar-servicios.component.scss'],
 })
 export class EditarServiciosComponent implements OnInit {
-  private routeSub: Subscription;
-  constructor(private servicioService: ServicioService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
+  public routeSub: Subscription;
+  constructor(public servicioService: ServicioService, public route: ActivatedRoute, public router: Router, public sanitizer: DomSanitizer) { }
   servicio: Servicio;
   previsualizacion: String;
   selectedId;

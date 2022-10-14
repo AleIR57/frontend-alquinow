@@ -1,0 +1,10 @@
+<ion-toolbar>
+
+ 
+  <ion-icon  (click) = "toggleMenu()" slot = "start" style = "width: 30px; height: 40px; margin-left: 2%;" name="menu-outline"></ion-icon>
+
+  <ion-icon slot = "end" name="cart-outline" style = "width: 40px; height: 40px; margin-right: 2%;"></ion-icon>
+  <ion-avatar routerLink = "/editar-perfil" slot = "end" style = "width: 40px; height: 40px" item-start class = "ion-margin-end">
+    <img [src] = "usuarioService.usuario.foto">
+  </ion-avatar>
+</ion-toolbar>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from 'src/app/servicios/auth.service';
+import jwt_decode from "jwt-decode";
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,13 +11,25 @@ import { AuthService } from 'src/app/servicios/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private authService: AuthService, private menuCtrl: MenuController) { }
+  constructor(public authService: AuthService, public menuCtrl: MenuController, public authGuard: AuthService, public usuarioService: UsuarioService) { }
+ 
+  ngOnInit() {
+    
+    var decoded = jwt_decode(this.authGuard.getToken());
+    this.usuarioService.obtenerUsuario(decoded['_id']).subscribe((res) => {
+     
+      this.usuarioService.usuario = res;
+      console.log(this.usuarioService.usuario);
+  });
+  
 
-  ngOnInit() {}
+
+
+ 
+  }
 
   cerrarSesion(){
     this.authService.logout();
-    this.menuCtrl.toggle();
   }
 
   toggleMenu(){

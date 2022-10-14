@@ -25,6 +25,8 @@ export class ProductoService {
     foto: '',
     estado: '',
     idUsuarioAlquilador: '',
+    fotosDetalladas: [''],
+    video: '',
     createdAt: '',
     updatedAt: '',
   };

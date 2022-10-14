@@ -11,7 +11,7 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
 })
 export class CrearServiciosComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private servicioService: ServicioService, private sanitizer: DomSanitizer) { }
+  constructor(public route: ActivatedRoute, public router: Router, public servicioService: ServicioService, public sanitizer: DomSanitizer) { }
   public previsualizacion: string;
   ngOnInit() {}
 

@@ -1,0 +1,123 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button  (click) = "goBack()" default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Editar perfil</ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+      <ion-card-title>Editar usuario</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div style = "text-align: center;">
+        <img [src] = "archivoCapturado" class = "circle">
+      </div>
+      <form #usuarioForm = "ngForm" (ngSubmit) = "editarUsuario(usuarioForm)">
+        <div class = "form-group">
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Nombres</label><span style = "color: red;"> *</span>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "text" class = "form-control" name = "nombres" placeholder = "Digite los nombres del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.nombres">
+
+            
+          </div>
+
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Apellidos</label><span style = "color: red;"> *</span>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "text" class = "form-control" name = "apellidos" placeholder = "Digite los apellidos del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.apellidos">
+
+            
+          </div>
+       
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Tipo de identificación</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <ion-select style = "width: 100%;" class = "form-control" name = "tipoIdentificacion" placeholder="Seleccionar identificación" [(ngModel)] = "usuarioService.usuarioSeleccionado.tipoIdentificacion">
+              <ion-select-option value="C.C">C.C</ion-select-option>
+              <ion-select-option value="C.E">C.E</ion-select-option>
+            </ion-select>
+
+            
+          </div>
+
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Identificación</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "number" class = "form-control" name = "identificacion" placeholder = "Digite la identificación del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.identificacion">
+          </div>
+
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Celular</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "number" class = "form-control" name = "celular" placeholder = "Digite el celular del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.celular">
+          </div>
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Residencia</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "text" class = "form-control" name = "residencia" placeholder = "Digite la residencia del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.residencia">
+          </div>
+          
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Correo</label><span style = "color: red;"> *</span>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "email" class = "form-control" name = "correo" placeholder = "Digite el correo del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.correo">
+          </div>
+
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Contraseña</label><span style = "color: red;"> *</span>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "password" class = "form-control" name = "contrasena" placeholder = "Digite la contraseña del usuario" [(ngModel)] = "usuarioService.usuarioSeleccionado.contrasena">
+          </div>
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Fecha de nacimiento</label><span style = "color: red;"> *</span>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input type = "date" class = "form-control" name = "fechaNacimiento" [(ngModel)] = "usuarioService.usuarioSeleccionado.fechaNacimiento">
+          </div>
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Estado</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            <ion-select style = "width: 100%;" class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "usuarioService.usuarioSeleccionado.estado">
+              <ion-select-option value="activo">Activo</ion-select-option>
+              <ion-select-option value="inactivo">Inactivo</ion-select-option>
+              <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+            </ion-select>
+           
+          </div>
+
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Rol</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            <ion-select  style = "width: 100%;" class = "form-control" name = "rol" placeholder="Seleccionar rol" [(ngModel)] = "usuarioService.usuarioSeleccionado.rol">
+              <ion-select-option value="Usuario">Usuario</ion-select-option>
+              <ion-select-option value="Administrador">Administrador</ion-select-option>
+            </ion-select>
+           
+          </div>
+
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Foto</label>
+          <div style = "text-align: center; display: flex; margin-bottom: 1%;">
+            <input type="file" name = "foto" (change) = "capturarFile($event)" value = "usuarioService.usuarioSeleccionado.foto">
+           
+          </div>
+          
+          <div style = "text-align: center;" *ngIf = "previsualizacion">
+              
+            <img style = "width: 50%;  border: 1px solid lightgray; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"[src] = "previsualizacion" alt = "">
+          </div>
+       
+      
+        </div>
+        
+        <div style="text-align:center; margin-top: 5%; ">
+          <button style = "background-color: rgba(232,93,248,1); border-radius: 8px; padding: 8px; color: white;" type = "submit">Guardar</button>
+        </div>
+        
+      </form>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

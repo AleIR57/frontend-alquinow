@@ -1,0 +1,88 @@
+<input type="file" (change) = "capturarFile($event)">
+<input type="file" (change) = "capturarFileVideo($event)">
+
+<video 
+  *ngIf="prev_url" 
+  [src]="prev_url" 
+  style="width:300px; height:300px;" 
+  controls></video>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button   routerLink = "/listar-productos" default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Configuración de productos</ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
+      <ion-card-title>Crear un nuevo producto</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form #productoForm = "ngForm" (ngSubmit) = "editarProducto(productoForm)">
+        <div class = "form-group">
+          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Nombre del producto</label><span style = "color: red;"> *</span>
+          <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+            
+            <input style = "width: 100%;"type = "text" class = "form-control" name = "nombreProducto" placeholder = "Digite los nombres del producto" [(ngModel)] = "productoService.productoSeleccionado.nombreProducto">
+
+            
+          </div>
+
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Descripción</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <textarea style = "width: 100%;" class = "form-control" name = "descripcion" placeholder = "Digite la descripción del producto" [(ngModel)] = "productoService.productoSeleccionado.descripcion"></textarea>
+            </div>
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Precio alquiler</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" type = "number" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del producto" [(ngModel)] = "productoService.productoSeleccionado.precioAlquiler">
+            </div>
+
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Tiempo alquiler (en días)</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" type = "number" class = "form-control" name = "tiempoAlquiler" placeholder = "Digite el tiempo de alquiler del producto en días" [(ngModel)] = "productoService.productoSeleccionado.tiempoAlquiler">
+            </div>
+       
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Marca</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" class = "form-control" name = "marca" placeholder = "Digite la marca del producto" [(ngModel)] = "productoService.productoSeleccionado.marca">
+            </div>
+         
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Modelo</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <input style = "width: 100%;" class = "form-control" name = "modelo" placeholder = "Digite el modelo del producto" [(ngModel)] = "productoService.productoSeleccionado.modelo">
+            </div>
+
+            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Estado</label>
+            <div style = " text-align: center; display: flex; margin-bottom: 1%;">
+              
+              <ion-select style = "width: 100%;" class = "form-control" name = "estado" placeholder="Seleccionar estado" [(ngModel)] = "productoService.productoSeleccionado.estado">
+                <ion-select-option value="activo">Activo</ion-select-option>
+                <ion-select-option value="inactivo">Inactivo</ion-select-option>
+                <ion-select-option value="bloqueado">Bloqueado</ion-select-option>
+              </ion-select>
+            </div>
+
+            <input style = "display: none;" class = "form-control" name = "fotosDetalladas">
+            <input style = "display: none;" class = "form-control" name = "video">
+          
+        </div>
+        
+        <div style="text-align:center; margin-top: 5%;">
+          <ion-button type = "submit">Guardar</ion-button>
+        </div>
+      
+        <ng-image-slider [images]="imageObject" #nav ></ng-image-slider>
+      </form>
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

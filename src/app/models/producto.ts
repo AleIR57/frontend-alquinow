@@ -1,3 +1,4 @@
+
 export interface Producto{
     _id: string,
     nombreProducto: string,
@@ -12,6 +13,8 @@ export interface Producto{
     foto: string,
     estado: string,
     idUsuarioAlquilador: string,
+    fotosDetalladas: [string],
+    video: any,
     createdAt: string,
     updatedAt: string,
 }

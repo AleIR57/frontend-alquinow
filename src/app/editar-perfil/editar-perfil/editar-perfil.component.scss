@@ -1,0 +1,37 @@
+ion-toolbar{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 3%;
+}
+
+ion-card{
+    border: 1px solid lightgray;
+}
+
+input{
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    outline: 0;
+    border: 2px solid lightgray;
+    padding: 5px;
+    
+}
+
+.select-ios .select-placeholder{
+    color: #000;
+    font-size: 15px;
+    }
+
+
+    input:focus{
+        border: 2px solid rgba(232,93,248,1);
+    }
+
+
+    .circle {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 50%;
+        
+       
+       }

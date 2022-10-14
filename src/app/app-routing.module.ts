@@ -14,16 +14,18 @@ import { ListarServiciosComponent } from './components/listar-servicios/listar-s
 import { CrearServiciosComponent } from './components/crear-servicios/crear-servicios.component';
 import { EditarServiciosComponent } from './components/editar-servicios/editar-servicios.component';
 import { ListarItemUsuarioComponent } from './components/items-usuarios/listar-item-usuario/listar-item-usuario.component';
+import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones/terminos-condiciones.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil/editar-perfil.component';
+import { CrearDetalleProductoComponent } from './components/detalle-producto/crear-detalle-producto/crear-detalle-producto.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    component: InicioSesionComponent
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: InicioSesionComponent
   },
   {
     path: 'listar-usuarios',
@@ -86,6 +88,21 @@ const routes: Routes = [
   {
     path: 'listar-items-usuarios',
     component: ListarItemUsuarioComponent
+  }
+  ,
+  {
+    path: 'terminos-condiciones',
+    component: TerminosCondicionesComponent
+  }
+  ,
+  {
+    path: 'editar-perfil',
+    component: EditarPerfilComponent
+  }
+  ,
+  {
+    path: 'crear-detalle-producto/:id',
+    component: CrearDetalleProductoComponent
   }
 ];
 

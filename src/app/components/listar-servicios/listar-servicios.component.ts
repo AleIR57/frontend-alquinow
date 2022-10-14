@@ -12,7 +12,7 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
 })
 export class ListarServiciosComponent implements OnInit {
   private routeSub: Subscription;
-  constructor(private alertController: AlertController, private servicioService: ServicioService, private route: ActivatedRoute, private authService: AuthService, private router: Router, private menuCtrl: MenuController) { }
+  constructor(public alertController: AlertController, public servicioService: ServicioService, public route: ActivatedRoute, public authService: AuthService, public router: Router, public menuCtrl: MenuController) { }
 
   selectedId;
   ngOnInit() {

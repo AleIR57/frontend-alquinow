@@ -11,7 +11,7 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 })
 export class CrearProductosComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private productoService: ProductoService, private sanitizer: DomSanitizer) { }
+  constructor(public route: ActivatedRoute, public router: Router, public productoService: ProductoService, public sanitizer: DomSanitizer) { }
   public previsualizacion: string;
   ngOnInit() {}
 

@@ -10,7 +10,7 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
 })
 export class ListarItemUsuarioComponent implements OnInit {
 
-  constructor(private menuCtrl: MenuController, private productoService: ProductoService, public servicioService: ServicioService) { }
+  constructor(public menuCtrl: MenuController, public productoService: ProductoService, public servicioService: ServicioService) { }
 
   productos: boolean;
   servicios: boolean;

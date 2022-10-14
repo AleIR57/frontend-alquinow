@@ -24,14 +24,19 @@ import { CrearServiciosComponent } from './components/crear-servicios/crear-serv
 import { EditarServiciosComponent } from './components/editar-servicios/editar-servicios.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ListarItemUsuarioComponent } from './components/items-usuarios/listar-item-usuario/listar-item-usuario.component';
+import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones/terminos-condiciones.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil/editar-perfil.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CrearDetalleProductoComponent } from './components/detalle-producto/crear-detalle-producto/crear-detalle-producto.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 AuthGuard
 
 @NgModule({
   declarations: [AppComponent, UsuarioComponent, DetalleUsuarioComponent, CrearUsuarioComponent, EditarUsuarioComponent, RegistroComponent, 
     InicioSesionComponent, ListarProductosComponent, CrearProductosComponent, EditarProductosComponent, ListarServiciosComponent, CrearServiciosComponent, 
-    EditarServiciosComponent, MenuComponent, ListarItemUsuarioComponent],
+    EditarServiciosComponent, MenuComponent, ListarItemUsuarioComponent, TerminosCondicionesComponent, EditarPerfilComponent, NavbarComponent, CrearDetalleProductoComponent],
   exports: [MenuComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, FormsModule, NgImageSliderModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard],
   bootstrap: [AppComponent],
 })

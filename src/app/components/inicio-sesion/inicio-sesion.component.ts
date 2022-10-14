@@ -17,7 +17,7 @@ export class InicioSesionComponent implements OnInit {
     contrasena: '',
   }
 
-  constructor(private authService: AuthService, private router: Router, private alertController: AlertController, private usuarioService: UsuarioService) { }
+  constructor(public authService: AuthService, public router: Router, public alertController: AlertController, public usuarioService: UsuarioService) { }
 
   ngOnInit() {
     // (document.getElementById('boton-guardar') as HTMLButtonElement).disabled = true;

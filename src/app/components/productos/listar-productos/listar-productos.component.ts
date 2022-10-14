@@ -11,15 +11,14 @@ import { ProductoService } from 'src/app/servicios/producto.service';
   styleUrls: ['./listar-productos.component.scss'],
 })
 export class ListarProductosComponent implements OnInit {
-  private routeSub: Subscription;
-  constructor(private alertController: AlertController, private productoService: ProductoService, private route: ActivatedRoute, private authService: AuthService, private router: Router, private menuCtrl: MenuController) { }
+  public routeSub: Subscription;
+  constructor(public alertController: AlertController, public productoService: ProductoService, public route: ActivatedRoute, public authService: AuthService, private router: Router, private menuCtrl: MenuController) { }
   selectedId;
   ngOnInit() {
     this.obtenerProductos();
   }
 
   obtenerProductos(){
- 
     console.log("Hola");
     let variable;
     this.productoService.obtenerProductos().subscribe((res) => {

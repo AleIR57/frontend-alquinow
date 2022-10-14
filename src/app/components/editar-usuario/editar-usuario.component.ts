@@ -12,8 +12,8 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
   styleUrls: ['./editar-usuario.component.scss'],
 })
 export class EditarUsuarioComponent implements OnInit {
-  private routeSub: Subscription;
-  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
+  public routeSub: Subscription;
+  constructor(public usuarioService: UsuarioService, public route: ActivatedRoute, public router: Router, public sanitizer: DomSanitizer) { }
   usuario: Usuario;
   selectedId;
   public previsualizacion: string;

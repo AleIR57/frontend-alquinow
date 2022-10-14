@@ -12,9 +12,9 @@ import { ProductoService } from 'src/app/servicios/producto.service';
   styleUrls: ['./editar-productos.component.scss'],
 })
 export class EditarProductosComponent implements OnInit {
-  private routeSub: Subscription;
+  public routeSub: Subscription;
   previsualizacion: String;
-  constructor(private productoService: ProductoService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
+  constructor(public productoService: ProductoService, public route: ActivatedRoute, public router: Router, public sanitizer: DomSanitizer) { }
   producto: Producto;
   selectedId;
   ngOnInit() {
@@ -25,7 +25,7 @@ export class EditarProductosComponent implements OnInit {
     this.productoService.obtenerProducto(this.selectedId).subscribe((res) => {
 
     this.productoService.productoSeleccionado = res;
-  });;
+  });
   }
 
   editarProducto(form: NgForm){

@@ -13,7 +13,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class CrearUsuarioComponent implements OnInit {
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private usuarioService: UsuarioService, private sanitizer: DomSanitizer) { }
+  constructor(public route: ActivatedRoute, public router: Router, public usuarioService: UsuarioService, public sanitizer: DomSanitizer) { }
   public previsualizacion: string;
   public archivos: any = [];
 

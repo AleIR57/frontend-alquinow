@@ -13,7 +13,24 @@ export class UsuarioService {
   URL_API = 'http://localhost:4000/api/usuarios'
 
   usuarios : Usuario[];
-  usuario : Usuario;
+  usuario : Usuario = {
+    _id: '',
+    nombres: '',
+    apellidos: '',
+    tipoIdentificacion: '',
+    identificacion: '',
+    rol: '',
+    celular: '',
+    residencia: '',
+    correo: '',
+    contrasena: '',
+    fechaNacimiento: '',
+    estado: '',
+    foto: '',
+    createdAt: '',
+    updatedAt: '',
+  };
+  
   usuarioSeleccionado: Usuario = {
     _id: '',
     nombres: '',
