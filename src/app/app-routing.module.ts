@@ -17,6 +17,7 @@ import { ListarItemUsuarioComponent } from './components/items-usuarios/listar-i
 import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones/terminos-condiciones.component';
 import { EditarPerfilComponent } from './editar-perfil/editar-perfil/editar-perfil.component';
 import { CrearDetalleProductoComponent } from './components/detalle-producto/crear-detalle-producto/crear-detalle-producto.component';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
 
 const routes: Routes = [
   {
@@ -103,6 +104,11 @@ const routes: Routes = [
   {
     path: 'crear-detalle-producto/:id',
     component: CrearDetalleProductoComponent
+  }
+  ,
+  {
+    path: 'detalle-producto/:id',
+    component: DetalleProductoComponent
   }
 ];
 

@@ -1,16 +1,17 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductoService } from 'src/app/servicios/producto.service';
 
 @Component({
-  selector: 'app-crear-detalle-producto',
-  templateUrl: './crear-detalle-producto.component.html',
-  styleUrls: ['./crear-detalle-producto.component.scss'],
+  selector: 'app-detalle-producto',
+  templateUrl: './detalle-producto.component.html',
+  styleUrls: ['./detalle-producto.component.scss'],
 })
-export class CrearDetalleProductoComponent implements OnInit {
+export class DetalleProductoComponent implements OnInit {
+
   prev_url : any;
   public previsualizacion:any = [];
   constructor( private sanitizer : DomSanitizer, public productoService: ProductoService, public route: ActivatedRoute, public router: Router) { }

@@ -1,9 +1,9 @@
 
 <ion-toolbar>
   <ion-buttons slot="start">
-    <ion-back-button   routerLink = "/listar-productos" default-href="#"></ion-back-button>
+    <ion-back-button   routerLink = "/listar-items-usuarios" default-href="#"></ion-back-button>
   </ion-buttons>
-  <ion-title>Configuración de productos</ion-title>
+  <ion-title>Detalle del producto</ion-title>
 </ion-toolbar>
 
 
@@ -13,18 +13,25 @@
 
     <ion-card-header>
       <!-- <ion-card-subtitle>Usuarios</ion-card-subtitle> -->
-      <ion-card-title>Crear o editar detalle del producto</ion-card-title>
+      <ion-card-title>{{productoService.productoSeleccionado.nombreProducto}}</ion-card-title>
+      <ion-card-subtitle><span style = "color: green;">${{productoService.productoSeleccionado.precioAlquiler}}</span> por {{productoService.productoSeleccionado.tiempoAlquiler}} día/s</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
       <form #productoForm = "ngForm" (ngSubmit) = "editarProducto(productoForm)">
         <div class = "form-group">
-          <label style = "text-align: left; color: black;  margin-bottom: 5%;">Nombre del producto</label>
-          <div style = " text-align: left; display: flex; margin-bottom: 1%;">
-            
-            <label style = "width: 100%;"type = "text" class = "form-control" name = "nombreProducto" placeholder = "Digite los nombres del producto">{{productoService.productoSeleccionado.nombreProducto}}</label>
+        
 
-            
+          <div style = "margin-top: 5%;">
+            <ng-image-slider [images]="imageObject" #nav ></ng-image-slider>
+          </div>
+
+          <div style = "margin-left: auto; margin-right: auto; text-align: center; margin-top: 5%;"> 
+            <video 
+            *ngIf="prev_url" 
+            [src]="prev_url" 
+            style="width:300px;" 
+            controls></video>
           </div>
 
             <label style = "text-align: left; color: black;  margin-bottom: 5%;">Descripción</label>
@@ -35,7 +42,7 @@
             <label style = "text-align: left; color: black;  margin-bottom: 5%;">Precio alquiler</label>
             <div style = " text-align: left; display: flex; margin-bottom: 1%;">
               
-              <label style = "width: 100%;" type = "number" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del producto">{{productoService.productoSeleccionado.precioAlquiler}}</label>
+              <label style = "width: 100%;" type = "number" class = "form-control" name = "precioAlquiler" placeholder = "Digite el precio de alquiler del producto"></label>
             </div>
 
             <label style = "text-align: left; color: black;  margin-bottom: 5%;">Tiempo alquiler (en días)</label>
@@ -62,38 +69,13 @@
               <label>{{productoService.productoSeleccionado.estado}}</label>
             </div>
 
-            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Insertar galería de imágenes</label>
-            <div>
-              <input type="file" (change) = "capturarFile($event)">
-            </div>
-            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Insertar video</label>
-            <div>
-              <input type="file" (change) = "capturarFileVideo($event)">
-            </div>
-
-            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Galería de imágenes</label>
-            <div style = "margin-top: 5%;">
-              <ng-image-slider [images]="imageObject" #nav ></ng-image-slider>
-            </div>
-
-            <label style = "text-align: left; color: black;  margin-bottom: 5%;">Video</label>
-            <div style = "margin-left: auto; margin-right: auto; text-align: center; margin-top: 5%;"> 
-              <video 
-              *ngIf="prev_url" 
-              [src]="prev_url" 
-              style="width:300px;" 
-              controls></video>
-            </div>
-           
-
-         
             <input style = "display: none;" class = "form-control" name = "fotosDetalladas">
             <input style = "display: none;" class = "form-control" name = "video">
           
         </div>
         
         <div style="text-align:center; margin-top: 5%;">
-          <ion-button type = "submit">Guardar</ion-button>
+          <ion-button type = "submit">Alquilar</ion-button>
         </div>
       
         

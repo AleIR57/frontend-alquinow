@@ -30,7 +30,7 @@
               <div style = "display: flex; flex-direction: column;">
                 <ion-label >{{producto.nombreProducto}}</ion-label>
               </div>
-             
+              <ion-icon style = "cursor: pointer;" slot = "end" name="cube-outline" routerLink = "/crear-detalle-producto/{{producto._id}}"></ion-icon>
               <ion-icon style = "cursor: pointer;" slot = "end" name="create-outline" routerLink = "/editar-producto/{{producto._id}}"></ion-icon>
               <ion-icon style = "cursor: pointer;" slot = "end" name="trash-outline" (click) = "presentAlert(producto._id)"></ion-icon>
             </ion-item>

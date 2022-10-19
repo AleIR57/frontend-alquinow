@@ -29,14 +29,16 @@ import { EditarPerfilComponent } from './editar-perfil/editar-perfil/editar-perf
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CrearDetalleProductoComponent } from './components/detalle-producto/crear-detalle-producto/crear-detalle-producto.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { DetalleProductoComponent } from './components/detalle-producto/detalle-producto.component';
+import {FilterSearchModule} from 'ng-filter-search';
 AuthGuard
 
 @NgModule({
   declarations: [AppComponent, UsuarioComponent, DetalleUsuarioComponent, CrearUsuarioComponent, EditarUsuarioComponent, RegistroComponent, 
     InicioSesionComponent, ListarProductosComponent, CrearProductosComponent, EditarProductosComponent, ListarServiciosComponent, CrearServiciosComponent, 
-    EditarServiciosComponent, MenuComponent, ListarItemUsuarioComponent, TerminosCondicionesComponent, EditarPerfilComponent, NavbarComponent, CrearDetalleProductoComponent],
+    EditarServiciosComponent, MenuComponent, ListarItemUsuarioComponent, TerminosCondicionesComponent, EditarPerfilComponent, NavbarComponent, CrearDetalleProductoComponent, DetalleProductoComponent],
   exports: [MenuComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, FormsModule, NgImageSliderModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, CommonModule, FormsModule, NgImageSliderModule, FilterSearchModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard],
   bootstrap: [AppComponent],
 })

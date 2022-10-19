@@ -11,6 +11,7 @@
 
 
 <ion-content>
+  <input placeholder="SEARCH FILTER" (input)="onSearchChange($event.target.value)" />
   <ion-segment value="Productos" (ionChange) = "segmentChanged($event)">
     <ion-segment-button value="Productos">
       <ion-label>Productos</ion-label>
@@ -36,44 +37,52 @@
  
   <div class="box-container" *ngIf = "productos">
     <div class="box" *ngFor = "let producto of productoService.productos">
-      <div class="image">
-        <img src = "{{producto.foto}}" alt = "">
-      </div>
-  
-      <div class="info">
-        <div style = "display: flex; width: 100%; align-items: center;">
-          <h3 class="title" style = "width: 80%;">{{producto.nombreProducto}} </h3>
-          <div *ngIf="producto.estado == 'activo'" class = "estado-verde"> </div>
-          <div *ngIf="producto.estado == 'inactivo'" class = "estado-gris"> </div>
-          <div *ngIf="producto.estado == 'bloqueado'" class = "estado-rojo"> </div>
-     
+      <div routerLink = "/detalle-producto/{{producto._id}}">
+        <div class="image">
+          <img src = "{{producto.foto}}" alt = "">
         </div>
+    
+        <div class="info">
+          <div style = "display: flex; width: 100%; align-items: center;">
+            <h3 class="title" style = "width: 80%;">{{producto.nombreProducto}} </h3>
+            <div *ngIf="producto.estado == 'activo'" class = "estado-verde"> </div>
+            <div *ngIf="producto.estado == 'inactivo'" class = "estado-gris"> </div>
+            <div *ngIf="producto.estado == 'bloqueado'" class = "estado-rojo"> </div>
        
-        <div class="subinfo">
-          <h6 style = "padding-left: 10px; padding-right: 8px;">{{producto.descripcion}}</h6>
-          <h6 style = "padding-left: 10px;">{{producto.marca}}</h6>
-          <h6 style = "padding-left: 10px;">Publicado por: Administración</h6>
-          
-          <h6>{{producto.calificacion}}</h6>
-          <div class="price">$ {{producto.precioAlquiler}} <span style = "color: #666;">por día</span></div>
-       
-          <div class="stars">
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
-            <i class = "fas fa-star-half"></i>
+          </div>
+         
+          <div class="subinfo">
+            <h6 style = "padding-left: 10px; padding-right: 8px;">{{producto.descripcion}}</h6>
+            <h6 style = "padding-left: 10px;">{{producto.marca}}</h6>
+            <h6 style = "padding-left: 10px;">Publicado por: Administración</h6>
+            
+            <h6>{{producto.calificacion}}</h6>
+            <div class="price">$ {{producto.precioAlquiler}} <span style = "color: #666;">por día</span></div>
+         
+            <div class="stars">
+              <i class = "fas fa-star"></i>
+              <i class = "fas fa-star"></i>
+              <i class = "fas fa-star"></i>
+              <i class = "fas fa-star"></i>
+              <i class = "fas fa-star-half"></i>
+            </div>
           </div>
         </div>
+    
+        <div class="overlay">
+          <a href = "#" style = "--i:1;"></a>
+          <a href = "#" style = "--i:2;"></a>
+          <a href = "#" style = "--i:3;"></a>
+        </div>
       </div>
-  
-      <div class="overlay">
-        <a href = "#" style = "--i:1;"></a>
-        <a href = "#" style = "--i:2;"></a>
-        <a href = "#" style = "--i:3;"></a>
       </div>
-    </div>
-  
+    
+    <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Cargando más información">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
     </div>
   <div class = "fondo" *ngIf = "servicios">
     <ion-searchbar show-cancel-button="focus" style = "border-radius: 15px;" placeholder="Buscar servicio"></ion-searchbar>

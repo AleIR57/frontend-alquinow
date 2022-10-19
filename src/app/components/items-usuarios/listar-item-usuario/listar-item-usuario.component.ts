@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ServicioService } from 'src/app/servicios/servicio.service';
+import {FilterSearchService} from 'ng-filter-search';
+import { Servicio } from 'src/app/models/servicio';
+import { Producto } from 'src/app/models/producto';
 
 @Component({
   selector: 'app-listar-item-usuario',
@@ -10,16 +13,20 @@ import { ServicioService } from 'src/app/servicios/servicio.service';
 })
 export class ListarItemUsuarioComponent implements OnInit {
 
-  constructor(public menuCtrl: MenuController, public productoService: ProductoService, public servicioService: ServicioService) { }
+  constructor(public menuCtrl: MenuController, public productoService: ProductoService, public servicioService: ServicioService, private fs: FilterSearchService) { }
 
   productos: boolean;
   servicios: boolean;
+  public cloner: Producto[];
+
+  public searchMap = ['nombreProducto'];
   ngOnInit() {
     this.productos = true;
     this.servicios = false;
 
     this.productoService.obtenerProductos().subscribe((res) => {
     this.productoService.productos = res;
+    this.cloner = [... this.productoService.productos];
   });
 
   this.servicioService.obtenerServicios().subscribe((res) => {
@@ -45,6 +52,20 @@ export class ListarItemUsuarioComponent implements OnInit {
       this.servicios = true;
     }
     
+  }
+
+  loadData(event){
+    console.log("Cargando información");
+
+  }
+
+  onSearchChange(sval: string): void {
+    // Use filterSearch() function to filter the data
+
+    // this.fs.filterSearch(sval, this.cloner, this.searchMap).subscribe((res) =>{
+    //   console.log(res);
+    // });
+
   }
 
 
